@@ -11,18 +11,28 @@ def load_json():
     json_url = os.path.join(SITE_ROOT, "static\data", file_name)
 
     data = json.load(open(json_url, encoding="utf8"))
-    
-    attributes = get_attributes(data)
-    return {'data': data, "attributes":attributes}
-    # return {"attributes":attributes}
-    # return attributes
     # return data
+    
+    # attributes = get_attributes(data)
+    # return attributes
+    # return {'data': data, "attributes":attributes}
+
+    # attributes = get_attributes(data['dogs'])
+    # return {"attributes":attributes}
+
+    attributes = get_attributes(data['people'])
+    return {"attributes":attributes}
 
 def get_attributes(data):
     if isinstance(data, dict):
-        return list(data.keys())
+        return set(data.keys())
     elif isinstance(data, list):
         # create a set of keys from all objects in list
-        get_attributes(data[0])
+        # return get_attributes(data[0])
+        attr_list = set()
+        for d in data:
+            attr_list =attr_list | get_attributes(d)
+        attr_list = list(attr_list)
+        return attr_list
 
 
