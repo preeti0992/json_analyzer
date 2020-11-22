@@ -3,6 +3,7 @@ import codecs
 import os
 from flask import Flask, render_template, url_for, json
 
+
 def load_json():
     # file_name = 'input.json'
     # file_name = 'sample.json'
@@ -12,7 +13,7 @@ def load_json():
 
     data = json.load(open(json_url, encoding="utf8"))
     # return data
-    
+
     # attributes = get_attributes(data)
     # return attributes
     # return {'data': data, "attributes":attributes}
@@ -20,8 +21,12 @@ def load_json():
     # attributes = get_attributes(data['dogs'])
     # return {"attributes":attributes}
 
-    attributes = get_attributes(data['people'])
-    return {"attributes":attributes}
+    # attributes = get_attributes(data['people'])
+    # return {"attributes":attributes}
+
+    # return {"result": filter_by_attributes(data['people'][0], 'name', 'Bob')}
+    return {"result": filter_by_attributes(data['people'][0], 'name', 'Robert')}
+
 
 def get_attributes(data):
     if isinstance(data, dict):
@@ -31,8 +36,13 @@ def get_attributes(data):
         # return get_attributes(data[0])
         attr_list = set()
         for d in data:
-            attr_list =attr_list | get_attributes(d)
+            attr_list = attr_list | get_attributes(d)
         attr_list = list(attr_list)
         return attr_list
 
 
+def filter_by_attributes(data, attr, value):
+    print('data ', data)
+    print('attr ', attr)
+    print('value ', value)
+    return data[attr] == value
