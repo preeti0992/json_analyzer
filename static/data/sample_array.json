@@ -1,0 +1,12 @@
+{
+    "people" :[
+        {
+            "name": "Bob", 
+            "languages": ["English", "French"]
+        },
+        {
+            "name": "Katy", 
+            "languages": ["English", "Spanish"]
+        }
+    ]
+}
