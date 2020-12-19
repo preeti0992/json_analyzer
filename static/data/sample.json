@@ -1,5 +1,22 @@
-
-{
-    "name": "Bob", 
-    "languages": ["English", "Fench"]
-}
+[
+    {
+          "name": "Charlie",
+          "job": "Janitor",
+          "age": "33"
+    },
+    {
+          "name": "Mac",
+          "job": "Bouncer",
+          "age": "40"
+    },
+    {
+          "name": "Dee",
+          "job": "Aspring actress",
+          "age": "23"
+    },
+    {
+          "name": "Dennis",
+          "job": "Bartender",
+          "age": "31"
+    }
+]
